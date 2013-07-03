@@ -13,54 +13,31 @@
 #     :socket    => '/tmp/mysql.sock'
 #   }
 #
-ActiveRecord::Base.configurations[:development] = {
+default = {
   :adapter   => 'mysql2',
   :encoding  => 'utf8',
   :reconnect => true,
-  :database  => 'newresume_development',
+  :database  => 'newresume',
   :pool      => 5,
   :username  => 'root',
   :password  => '',
   :host      => 'localhost',
   :socket    => '/tmp/mysql.sock'
-
 }
+ActiveRecord::Base.configurations[:development] = default
+ActiveRecord::Base.configurations[:production] = default
+ActiveRecord::Base.configurations[:test] = default.merge(:database => 'newresume_test')
 
-ActiveRecord::Base.configurations[:production] = {
-  :adapter   => 'mysql2',
-  :encoding  => 'utf8',
-  :reconnect => true,
-  :database  => 'newresume_production',
-  :pool      => 5,
-  :username  => 'root',
-  :password  => '',
-  :host      => 'localhost',
-  :socket    => '/tmp/mysql.sock'
-
-}
-
-ActiveRecord::Base.configurations[:test] = {
-  :adapter   => 'mysql2',
-  :encoding  => 'utf8',
-  :reconnect => true,
-  :database  => 'newresume_test',
-  :pool      => 5,
-  :username  => 'root',
-  :password  => '',
-  :host      => 'localhost',
-  :socket    => '/tmp/mysql.sock'
-
-}
 
 # Setup our logger
 ActiveRecord::Base.logger = logger
 
 # Raise exception on mass assignment protection for Active Record models.
-ActiveRecord::Base.mass_assignment_sanitizer = :strict
+# ActiveRecord::Base.mass_assignment_sanitizer = :strict # ar4 remove
 
 # Log the query plan for queries taking more than this (works
 # with SQLite, MySQL, and PostgreSQL).
-ActiveRecord::Base.auto_explain_threshold_in_seconds = 0.5
+# ActiveRecord::Base.auto_explain_threshold_in_seconds = 0.5 # ar4 remove
 
 # Include Active Record class name as root for JSON serialized output.
 ActiveRecord::Base.include_root_in_json = false
