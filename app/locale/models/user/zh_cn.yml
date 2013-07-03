@@ -1,0 +1,29 @@
+zh_cn:
+  models:
+    user:
+      name: 用户
+      attributes:
+        id: Id
+        name: 姓名
+        gender: 性别
+        birth_on: 出生年月
+        work_on: 参加工作年月
+        degree: 学历
+        email: 邮箱
+        phone: 电话
+        qq: QQ
+        msn: Msn
+        city: 城市
+        address: 家庭住址
+        hukou: 户籍
+        family_tel: 家庭电话
+        company: 公司
+        title: 职位
+        industry: 行业
+        website: 主页
+        self_intro: 自我介绍
+        contact_records: 联系记录
+        score: 级别
+        source: 来源
+        created_at: 创建时间
+        updated_at: 更新时间

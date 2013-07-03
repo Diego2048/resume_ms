@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130703075512) do
+ActiveRecord::Schema.define(version: 20130703083321) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -19,6 +19,32 @@ ActiveRecord::Schema.define(version: 20130703075512) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.boolean  "gender"
+    t.date     "birth_on"
+    t.date     "work_on"
+    t.string   "degree"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "qq"
+    t.string   "msn"
+    t.string   "city"
+    t.string   "address"
+    t.string   "hukou"
+    t.string   "family_tel"
+    t.string   "company"
+    t.string   "title"
+    t.string   "industry"
+    t.string   "website"
+    t.text     "self_intro"
+    t.text     "contact_records"
+    t.integer  "score",           limit: 1
+    t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
