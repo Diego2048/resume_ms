@@ -16,12 +16,8 @@ gem 'rake'
 # Component requirements
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'erubis', '~> 2.7.0'
-gem 'activerecord', '>= 3.1', :require => 'active_record'
+gem 'activerecord', '~> 4.0', :require => 'active_record'
 gem 'mysql2'
-
-# Test requirements
-gem 'minitest', '~>2.6.0', :require => 'minitest/autorun', :group => 'test'
-gem 'rack-test', :require => 'rack/test', :group => 'test'
 
 # Padrino Stable Gem
 gem 'padrino', '0.11.2'
@@ -33,3 +29,14 @@ gem 'padrino', '0.11.2'
 # %w(core gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.11.2'
 # end
+
+group :development do
+  gem 'pry-padrino'
+  gem 'thin'
+end
+
+group :test do
+  # Test requirements
+  gem 'minitest', '~> 4.2', :require => 'minitest/autorun'
+  gem 'rack-test', :require => 'rack/test'
+end
