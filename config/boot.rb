@@ -34,6 +34,8 @@ Bundler.require(:default, PADRINO_ENV)
 # Add your before (RE)load hooks here
 #
 Padrino.before_load do
+  # i18n
+  I18n.locale = :zh_cn
 end
 
 ##
