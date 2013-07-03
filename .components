@@ -7,3 +7,4 @@
 :stylesheet: none
 :namespace: Newresume
 :migration_format: timestamp
+:admin_renderer: erb
