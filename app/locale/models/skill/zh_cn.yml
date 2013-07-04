@@ -1,0 +1,7 @@
+zh_cn:
+  models:
+    skill:
+      name: 技能
+      attributes:
+        id: Id
+        name: 名称

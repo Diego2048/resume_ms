@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130704032034) do
+ActiveRecord::Schema.define(version: 20130704075312) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20130704032034) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "acquired_skills", force: true do |t|
+    t.integer "user_id",              null: false
+    t.integer "skill_id",             null: false
+    t.integer "experience", limit: 2
+    t.integer "level",      limit: 1
+  end
+
+  add_index "acquired_skills", ["skill_id"], name: "index_acquired_skills_on_skill_id", using: :btree
+  add_index "acquired_skills", ["user_id"], name: "index_acquired_skills_on_user_id", using: :btree
 
   create_table "educations", force: true do |t|
     t.integer  "user_id",    null: false
@@ -65,6 +75,10 @@ ActiveRecord::Schema.define(version: 20130704032034) do
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
+
+  create_table "skills", force: true do |t|
+    t.string "name"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

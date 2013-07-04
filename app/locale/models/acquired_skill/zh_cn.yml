@@ -1,0 +1,10 @@
+zh_cn:
+  models:
+    acquired_skill:
+      name: 掌握的技能
+      attributes:
+        id: Id
+        user_id: 用户
+        skill_id: 技能
+        experience: 经验
+        level: 级别
