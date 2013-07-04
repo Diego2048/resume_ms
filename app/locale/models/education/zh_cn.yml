@@ -1,0 +1,15 @@
+zh_cn:
+  models:
+    education:
+      name: 教育经历
+      attributes:
+        id: Id
+        user_id: 用户
+        school: 学校
+        begin_on: 就读开始时间
+        end_on: 就读结束时间
+        degree: 学位
+        major: 专业
+        summary: 就读期间详细描述
+        created_at: 创建时间
+        updated_at: 更新时间
