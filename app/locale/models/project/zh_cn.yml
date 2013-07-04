@@ -1,0 +1,15 @@
+zh_cn:
+  models:
+    project:
+      name: 项目经验
+      attributes:
+        id: Id
+        user_id: 用户
+        name: 项目名称
+        begin_on: 开始时间
+        end_on: 结束时间
+        summary: 详细描述
+        duty: 在项目当中的职责
+        platform: 采用语言和工具描述
+        created_at: 创建时间
+        updated_at: 更新时间

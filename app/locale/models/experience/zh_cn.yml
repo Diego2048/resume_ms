@@ -13,3 +13,4 @@ zh_cn:
         summary: 工作内容和职责的描述
         created_at: 创建时间
         updated_at: 更新时间
+        user_id: 用户
