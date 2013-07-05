@@ -1,7 +1,7 @@
 class CreateExperiences < ActiveRecord::Migration
   def self.up
     create_table :experiences do |t|
-      t.references :user, :null => false, :index => true
+      t.references :user, null: false, index: true
       t.string :company
       t.string :industry
       t.string :department

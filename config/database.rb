@@ -14,19 +14,19 @@
 #   }
 #
 default = {
-  :adapter   => 'mysql2',
-  :encoding  => 'utf8',
-  :reconnect => true,
-  :database  => 'newresume',
-  :pool      => 5,
-  :username  => 'root',
-  :password  => '',
-  :host      => 'localhost',
-  :socket    => '/tmp/mysql.sock'
+  adapter: 'mysql2',
+  encoding: 'utf8',
+  reconnect: true,
+  database: 'newresume',
+  pool: 5,
+  username: 'root',
+  password: '',
+  host: 'localhost',
+  socket: '/tmp/mysql.sock'
 }
 ActiveRecord::Base.configurations[:development] = default
 ActiveRecord::Base.configurations[:production] = default
-ActiveRecord::Base.configurations[:test] = default.merge(:database => 'newresume_test')
+ActiveRecord::Base.configurations[:test] = default.merge(database: 'newresume_test')
 
 
 # Setup our logger

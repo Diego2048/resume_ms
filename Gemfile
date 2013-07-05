@@ -14,9 +14,9 @@ source 'https://rubygems.org'
 gem 'rake'
 
 # Component requirements
-gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'erubis', '~> 2.7.0'
-gem 'activerecord', '~> 4.0', :require => 'active_record'
+gem 'activerecord', '~> 4.0', require: 'active_record'
 gem 'mysql2'
 
 # Padrino Stable Gem
@@ -37,6 +37,6 @@ end
 
 group :test do
   # Test requirements
-  gem 'minitest', '~> 4.2', :require => 'minitest/autorun'
-  gem 'rack-test', :require => 'rack/test'
+  gem 'minitest', '~> 4.2', require: 'minitest/autorun'
+  gem 'rack-test', require: 'rack/test'
 end

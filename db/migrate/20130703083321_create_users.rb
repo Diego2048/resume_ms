@@ -24,7 +24,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :self_intro
 
       t.text :contact_records
-      t.integer :score, :limit => 1
+      t.integer :score, limit: 1
       t.string :source
       t.timestamps
     end

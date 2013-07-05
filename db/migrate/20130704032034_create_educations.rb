@@ -1,7 +1,7 @@
 class CreateEducations < ActiveRecord::Migration
   def self.up
     create_table :educations do |t|
-      t.references :user, :null => false, :index => true
+      t.references :user, null: false, index: true
       t.string :school
       t.date :begin_on
       t.date :end_on
