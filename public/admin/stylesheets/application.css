@@ -182,9 +182,7 @@ footer p {
   -ms-box-shadow: 0px 1px 10px #777;
   box-shadow: 0px 1px 10px #777;
 }
-.navbar-nav-link {
-  padding: 17px 15px 13px !important;
-}
+
 .navbar-nav-form {
   margin: 0;
 }
@@ -195,7 +193,7 @@ footer p {
   text-decoration: none;
   text-shadow: 0 1px 0 #ffffff;
   font-size: inherit;
-  padding: 17px 15px 13px;
+  padding: 10px 15px 10px;
 }
 .navbar-nav-form-link:hover {
   color: #333333;

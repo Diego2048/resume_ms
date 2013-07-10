@@ -113,5 +113,10 @@
 
     // Autofocus first field with an error. (usability)
     $('.has-error :input').first().focus();
+
+    // custom effect
+    $('.dropdown-menu > li > a').click(function(){
+      $(this).parents('div.btn-group').prev('input').val(this.innerHTML);
+    });
   });
 }(window.jQuery);
