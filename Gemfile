@@ -39,4 +39,6 @@ group :test do
   # Test requirements
   gem 'minitest', '~> 4.2', require: 'minitest/autorun'
   gem 'rack-test', require: 'rack/test'
+  gem 'factory_girl'
+  gem 'database_cleaner'
 end
