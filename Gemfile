@@ -16,14 +16,14 @@ gem 'rake'
 # Component requirements
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'erubis', '~> 2.7.0'
-gem 'activerecord', '~> 4.0', require: 'active_record'
+gem 'activerecord', '~> 3.2.13', require: 'active_record'
 gem 'mysql2'
 
 # Padrino Stable Gem
-gem 'padrino', '0.11.2'
+#gem 'padrino', '0.11.2'
 
 # Or Padrino Edge
-# gem 'padrino', :github => 'padrino/padrino-framework'
+gem 'padrino', :github => 'padrino/padrino-framework'
 
 # Or Individual Gems
 # %w(core gen helpers cache mailer admin).each do |g|
