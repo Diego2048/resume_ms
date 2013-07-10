@@ -34,8 +34,8 @@ module Newresume
     end
 
     access_control.roles_for :admin do |role|
-    role.project_module :users, '/users'
-    role.project_module :accounts, '/accounts'
+      role.project_module '用户简历', '/users'
+      role.project_module '管理员', '/accounts'
     end
 
     # Custom error management 
