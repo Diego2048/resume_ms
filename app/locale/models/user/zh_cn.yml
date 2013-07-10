@@ -6,7 +6,9 @@ zh_cn:
         id: Id
         name: 姓名
         gender: 性别
+        birth_on_year: 出生年月
         birth_on: 出生年月
+        work_on_year: 参加工作年月
         work_on: 参加工作年月
         degree: 学历
         email: 邮箱

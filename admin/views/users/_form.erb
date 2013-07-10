@@ -1,169 +1,194 @@
 <% error = @user.errors.include?(:name) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :name, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :name, :class => 'input-xlarge input-with-feedback', :autofocus => true %>
-    <span class='help-inline'><%= error ? f.error_message_on(:name) : "Ex: a simple text" %></span>
+    <%= f.text_field :name, :autofocus => true %>
+    <span class='help-inline'><%= f.error_message_on(:name) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:gender) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :gender, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.check_box :gender, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:gender) : "Ex: a simple text" %></span>
+    <label class="radio inline"><%= f.radio_button :gender, :value => true %> 男</label>
+    <label class="radio inline"><%= f.radio_button :gender, :value => false %> 女</label>
+    <span class='help-inline'><%= f.error_message_on(:gender) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:birth_on) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
-  <%= f.label :birth_on, :class => 'control-label' %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :birth_on_year, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :birth_on, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:birth_on) : "Ex: a simple text" %></span>
+    <%= f.text_field :birth_on_year, :class => 'input-mini' %> 年
+    <%= f.month_select :birth_on_month %> 月
+    <span class='help-inline'><%= f.error_message_on(:birth_on) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:work_on) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
-  <%= f.label :work_on, :class => 'control-label' %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :work_on_year, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :work_on, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:work_on) : "Ex: a simple text" %></span>
+    <%= f.text_field :work_on_year, :class => 'input-mini' %> 年
+    <%= f.month_select :work_on_month %> 月
+    <span class='help-inline'><%= f.error_message_on(:work_on) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:degree) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :degree, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :degree, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:degree) : "Ex: a simple text" %></span>
+    <%= f.locale_select :degree, 'options.degree_names' %>
+    <span class='help-inline'><%= f.error_message_on(:degree) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:email) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :email, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :email, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:email) : "Ex: a simple text" %></span>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-envelope"></i></span>
+      <%= f.email_field :email %>
+    </div>
+    <span class='help-inline'><%= f.error_message_on(:email) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:phone) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :phone, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :phone, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:phone) : "Ex: a simple text" %></span>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-globe"></i></span>
+      <%= f.text_field :phone %>
+    </div>
+    <span class='help-inline'><%= f.error_message_on(:phone) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:qq) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :qq, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :qq, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:qq) : "Ex: a simple text" %></span>
+    <%= f.text_field :qq %>
+    <span class='help-inline'><%= f.error_message_on(:qq) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:msn) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :msn, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :msn, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:msn) : "Ex: a simple text" %></span>
+    <%= f.text_field :msn %>
+    <span class='help-inline'><%= f.error_message_on(:msn) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:city) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :city, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :city, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:city) : "Ex: a simple text" %></span>
+    <div class="input-append">
+      <%= f.text_field :city %>
+      <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+          <%= t('top_cities.name') %>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <% t('top_cities.cities').each do |city| -%>
+          <li><a href="javascript:void(0)"><%= city %></a></li>
+          <% end -%>
+        </ul>
+      </div>
+    </div>    
+    <span class='help-inline'><%= f.error_message_on(:city) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:address) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :address, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :address, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:address) : "Ex: a simple text" %></span>
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-home"></i></span>
+        <%= f.text_field :address %>
+      </div>
+    <span class='help-inline'><%= f.error_message_on(:address) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:hukou) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :hukou, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :hukou, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:hukou) : "Ex: a simple text" %></span>
+    <%= f.text_field :hukou %>
+    <span class='help-inline'><%= f.error_message_on(:hukou) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:family_tel) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :family_tel, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :family_tel, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:family_tel) : "Ex: a simple text" %></span>
+    <%= f.text_field :family_tel %>
+    <span class='help-inline'><%= f.error_message_on(:family_tel) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:company) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :company, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :company, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:company) : "Ex: a simple text" %></span>
+    <%= f.text_field :company %>
+    <span class='help-inline'><%= f.error_message_on(:company) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:title) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :title, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :title, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:title) : "Ex: a simple text" %></span>
+    <%= f.text_field :title %>
+    <span class='help-inline'><%= f.error_message_on(:title) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:industry) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :industry, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :industry, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:industry) : "Ex: a simple text" %></span>
+    <%= f.text_field :industry %>
+    <span class='help-inline'><%= f.error_message_on(:industry) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:website) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :website, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :website, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:website) : "Ex: a simple text" %></span>
+    <%= f.url_field :website %>
+    <span class='help-inline'><%= f.error_message_on(:website) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:self_intro) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :self_intro, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_area :self_intro, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:self_intro) : "Ex: a simple text" %></span>
+    <%= f.text_area :self_intro %>
+    <span class='help-inline'><%= f.error_message_on(:self_intro) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:contact_records) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :contact_records, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_area :contact_records, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:contact_records) : "Ex: a simple text" %></span>
+    <%= f.text_area :contact_records %>
+    <span class='help-inline'><%= f.error_message_on(:contact_records) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:score) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :score, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :score, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:score) : "Ex: a simple text" %></span>
+    <%= f.locale_select :score, 'options.score_names' %>
+    <span class='help-inline'><%= f.error_message_on(:score) if error %></span>
   </div>
 </fieldset>
 <% error = @user.errors.include?(:source) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+<fieldset class='control-group <%= 'error' if error %>'>
   <%= f.label :source, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :source, :class => 'input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:source) : "Ex: a simple text" %></span>
+    <%= f.text_field :source %>
+    <span class='help-inline'><%= f.error_message_on(:source) if error %></span>
   </div>
 </fieldset>
 

@@ -1,0 +1,10 @@
+zh_cn:
+  options:
+    degree_names: [~, 小学, 初中, 高中, 大专, 本科, 硕士, 博士, 博士后]
+    abbr_degree_names: [~, 1, 2, 3, 4, 5, 6, 7, 8]
+    score_names: [~, 一级, 二级, 三级, 四级, 五级]
+    abbr_score_names: [~, 1, 2, 3, 4, 5]
+  top_cities:
+    name: 常用城市
+    cities: [北京, 上海, 广州, 深圳, 珠海, 汕头] 
+    
