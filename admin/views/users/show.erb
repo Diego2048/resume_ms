@@ -1,0 +1,70 @@
+<ul class="nav nav-tabs">
+  <li> <%= link_to tag_icon(:list, pat(:list)), url(:users, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:users, :new) %></li>
+  <li class="active"> <%= link_to tag_icon(:th, pat(:show)), url(:users, :show, :id => @user.id) %></li>
+  <li> <%= link_to tag_icon(:edit, pat(:edit)), url(:users, :edit, :id => @user.id) %></li>
+</ul>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><%= mat(:user, :name) %></td>
+      <td><%= @user.name %></td>
+      <th><%= mat(:user, :gender) %></th>
+      <td><%= locale_abbr(@user, :gender, :gender_name) %></td>
+      <th><%= mat(:user, :birth_on) %></th>
+      <td><%= short_date @user.birth_on %></td>
+      <th><%= mat(:user, :work_on) %></th>
+      <td><%= short_date @user.work_on %></td>
+      <th><%= mat(:user, :degree) %></th>
+      <td><%= locale_abbr(@user, :degree) %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><%= mat(:user, :email) %></th>
+      <td><%= @user.email %></td>
+      <th><%= mat(:user, :phone) %></th>
+      <td><%= @user.phone %></td>
+      <th><%= mat(:user, :qq) %></th>
+      <td><%= @user.qq %></td>
+      <th><%= mat(:user, :msn) %></th>
+      <td colspan="3"><%= @user.msn %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:user, :city) %></th>
+      <td><%= @user.city %></td>
+      <th><%= mat(:user, :address) %></th>
+      <td><%= @user.address %></td>
+      <th><%= mat(:user, :hukou) %></th>
+      <td><%= @user.hukou %></td>
+      <th><%= mat(:user, :family_tel) %></th>
+      <td colspan="3"><%= @user.family_tel %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:user, :company) %></th>
+      <td><%= @user.company %></td>
+      <th><%= mat(:user, :title) %></th>
+      <td><%= @user.title %></td>
+      <th><%= mat(:user, :industry) %></th>
+      <td><%= @user.industry %></td>
+      <th><%= mat(:user, :website) %></th>
+      <td colspan="3"><%= @user.website %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:user, :self_intro) %></th>
+      <td colspan="5"><%= @user.self_intro %></td>
+      <th><%= mat(:user, :source) %></th>
+      <td colspan="3"><%= @user.source %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:user, :contact_records) %></th>
+      <td colspan="9"><%= @user.contact_records %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:user, :created_at) %></th>
+      <td colspan="3"><%=l @user.created_at %></td>
+      <th><%= mat(:user, :updated_at) %></th>
+      <td colspan="5"><%=l @user.updated_at %></td>
+    </tr>
+  </tbody>
+</table>

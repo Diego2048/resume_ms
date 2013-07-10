@@ -25,6 +25,17 @@ Newresume::Admin.controllers :users do
     end
   end
 
+  get :show, :map => '/users/:id' do
+    @title = pat(:show_title, :model => "#{mt(:user)} #{params[:id]}")
+    @user = User.find(params[:id])
+    if @user
+      render 'users/show'
+    else
+      flash[:warning] = pat(:create_error, :model => mt(:user), :id => "#{params[:id]}")
+      halt 404
+    end
+  end
+
   get :edit, :with => :id do
     @title = pat(:edit_title, :model => "#{mt(:user)} #{params[:id]}")
     @user = User.find(params[:id])
@@ -79,9 +90,8 @@ Newresume::Admin.controllers :users do
     end
     ids = params[:user_ids].split(',').map(&:strip).map(&:to_i)
     users = User.find(ids)
-    
+
     if User.destroy users
-    
       flash[:success] = pat(:destroy_many_success, :model => mt(:user), :ids => "#{ids.to_sentence}")
     end
     redirect url(:users, :index)

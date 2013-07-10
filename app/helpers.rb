@@ -21,5 +21,13 @@ Newresume::Admin.helpers do
              :self_intro, :score, :source)
   end
 
+  def short_date(date)
+    I18n.l(date, :format => :ym) if date
+  end
+
+  def locale_abbr(obj, attribute, abbr_attr = nil)
+    a = obj.send abbr_attr.nil? ? attribute : abbr_attr
+    I18n.t("options.#{attribute}_names").at(a) if a
+  end
 
 end

@@ -36,4 +36,9 @@ class User < ActiveRecord::Base
     self.birth_on = @birth_on_year.present? && @birth_on_month.present? ? Date.new(@birth_on_year.to_i, @birth_on_month.to_i) : nil 
     self.work_on = @work_on_year.present? && @work_on_month.present? ? Date.new(@work_on_year.to_i, @work_on_month.to_i) : nil
   end
+
+  def gender_name
+    gender? ? 1 : 0 unless gender.nil?
+  end
+
 end

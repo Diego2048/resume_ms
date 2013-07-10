@@ -47,15 +47,6 @@
                 <th class=header> <%= mat(:user, :qq) %></th>
                 <th class=header> <%= mat(:user, :msn) %></th>
                 <th class=header> <%= mat(:user, :city) %></th>
-                <th class=header> <%= mat(:user, :address) %></th>
-                <th class=header> <%= mat(:user, :hukou) %></th>
-                <th class=header> <%= mat(:user, :family_tel) %></th>
-                <th class=header> <%= mat(:user, :company) %></th>
-                <th class=header> <%= mat(:user, :title) %></th>
-                <th class=header> <%= mat(:user, :industry) %></th>
-                <th class=header> <%= mat(:user, :website) %></th>
-                <th class=header> <%= mat(:user, :self_intro) %></th>
-                <th class=header> <%= mat(:user, :contact_records) %></th>
                 <th class=header> <%= mat(:user, :score) %></th>
                 <th class=header> <%= mat(:user, :source) %></th>
                 <th class=header> <%= mat(:user, :created_at) %></th>
@@ -71,30 +62,22 @@
            </td>
           <td class=list-column> <%= user.id %> </td>
           <td class=list-column> <%= user.name %> </td>
-          <td class=list-column> <%= user.gender ? tag_icon(:ok) : tag_icon(:remove) %> </td>
-          <td class=list-column> <%= user.birth_on %> </td>
-          <td class=list-column> <%= user.work_on %> </td>
-          <td class=list-column> <%= user.degree %> </td>
+          <td class=list-column> <%= locale_abbr(user, :gender, :gender_name) %> </td>
+          <td class=list-column> <%= short_date user.birth_on %> </td>
+          <td class=list-column> <%= short_date user.work_on %> </td>
+          <td class=list-column> <%= locale_abbr(user, :degree) %> </td>
           <td class=list-column> <%= user.email %> </td>
           <td class=list-column> <%= user.phone %> </td>
           <td class=list-column> <%= user.qq %> </td>
           <td class=list-column> <%= user.msn %> </td>
           <td class=list-column> <%= user.city %> </td>
-          <td class=list-column> <%= user.address %> </td>
-          <td class=list-column> <%= user.hukou %> </td>
-          <td class=list-column> <%= user.family_tel %> </td>
-          <td class=list-column> <%= user.company %> </td>
-          <td class=list-column> <%= user.title %> </td>
-          <td class=list-column> <%= user.industry %> </td>
-          <td class=list-column> <%= user.website %> </td>
-          <td class=list-column> <%= user.self_intro %> </td>
-          <td class=list-column> <%= user.contact_records %> </td>
-          <td class=list-column> <%= user.score %> </td>
+          <td class=list-column> <%= locale_abbr(user, :score) %> </td>
           <td class=list-column> <%= user.source %> </td>
           <td class=list-column> <%= time_ago_in_words user.created_at %></td>
           <td class=list-column> <%= time_ago_in_words user.updated_at %></td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
+               <%= link_to tag_icon(:th), :href => url(:users, :show, :id => user.id), :rel => :tooltip, :title => "#{pat(:show)} user", :class => 'list-row-action-wrapper-link' %>
                <%= link_to tag_icon(:edit), :href => url(:users, :edit, :id => user.id), :rel => :tooltip, :title => "#{pat(:edit)} user", :class => 'list-row-action-wrapper-link' %>
                <%= link_to tag_icon(:trash), :rel => :tooltip, :title => "#{pat(:delete)} user", :class => 'list-row-action-delete-one list-row-action-wrapper-link' %>
                <div class="popover list-row-action-popover-delete-one left">

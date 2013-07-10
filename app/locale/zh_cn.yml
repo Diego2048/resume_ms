@@ -4,7 +4,14 @@ zh_cn:
     abbr_degree_names: [~, 1, 2, 3, 4, 5, 6, 7, 8]
     score_names: [~, 一级, 二级, 三级, 四级, 五级]
     abbr_score_names: [~, 1, 2, 3, 4, 5]
+    gender_names: [女, 男]
   top_cities:
     name: 常用城市
-    cities: [北京, 上海, 广州, 深圳, 珠海, 汕头] 
+    cities: [北京, 上海, 广州, 深圳, 珠海, 汕头]
+  padrino:
+    admin:
+      show_title: "显示 %{model}"
+  date:
+    formats:
+      ym: "%Y-%m"
     
