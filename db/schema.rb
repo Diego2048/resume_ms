@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130704075312) do
+ActiveRecord::Schema.define(version: 20130710033448) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20130704075312) do
     t.boolean  "gender"
     t.date     "birth_on"
     t.date     "work_on"
-    t.string   "degree"
+    t.integer  "degree",          limit: 1
     t.string   "email"
     t.string   "phone"
     t.string   "qq"
