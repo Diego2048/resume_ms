@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 class Experience < ActiveRecord::Base
+  transform_date :begin_on, :end_on
   belongs_to :user
+  validates :company, presence: true
+  scope :recent, -> {order('begin_on desc, id desc')}
 end
 
 # == Schema Information
@@ -12,7 +15,7 @@ end
 #  company    :string(255)
 #  industry   :string(255)
 #  department :string(255)
-#  start_on   :date
+#  begin_on   :date
 #  end_on     :date
 #  title      :string(255)
 #  summary    :text
