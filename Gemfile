@@ -33,6 +33,9 @@ gem 'padrino', :github => 'padrino/padrino-framework'
 group :development do
   gem 'pry-padrino'
   gem 'thin'
+  gem 'annotate', ">=2.5.0" # Model Annotate: Schema Information
+  gem "magic_encoding"  # quickly add or modify encoding for your ruby 1.9 applications
+
 end
 
 group :test do

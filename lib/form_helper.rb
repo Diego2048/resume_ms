@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CustomFormBuilder
   def locale_select(field, name, options={})
     abbr_name = name.sub('.', '.abbr_')

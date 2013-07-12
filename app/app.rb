@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Newresume
   class App < Padrino::Application
     use ActiveRecord::ConnectionAdapters::ConnectionManagement

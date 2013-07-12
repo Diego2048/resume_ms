@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Newresume::App.controllers  do
   
   # get :index, :map => '/foo/bar' do

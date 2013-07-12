@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Newresume::Admin.controllers :users do
 
   get :index do

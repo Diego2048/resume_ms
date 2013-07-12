@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ##
 # Mailer methods can be defined using the simple format:
 #

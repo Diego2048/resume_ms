@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAcquiredSkills < ActiveRecord::Migration
   def self.up
     create_table :acquired_skills do |t|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Newresume::Admin.controllers :projects, :parent => :user do
   before do
     @user = User.find params[:user_id]

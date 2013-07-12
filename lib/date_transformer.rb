@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module DateTransformer
   def transform_date(*date_attrs)
     date_attrs = date_attrs.to_a.flatten.compact.map(&:to_sym)
