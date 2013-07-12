@@ -1,0 +1,3 @@
+<% form_for :project, url(:projects, :update, user_id: @user.id, id: @project.id), method: :put, class: 'form-horizontal', id: "project_#{@project.id}_form" do |f| %>
+  <%= partial 'projects/form', :locals => { f: f, project: @project } %>
+<% end %>

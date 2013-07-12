@@ -7,7 +7,7 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th><%= mat(:user, :name) %></td>
+      <th><%= mat(:user, :name) %></th>
       <td><%= @user.name %></td>
       <th><%= mat(:user, :gender) %></th>
       <td><%= locale_abbr(@user, :gender, :gender_name) %></td>
@@ -68,3 +68,30 @@
     </tr>
   </tbody>
 </table>
+<% create = request.path.include?('create') %>
+<div class="tabbable">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">项目经历</a>
+      <ul class="nav">
+        <li class="<%= 'active' unless create %>"><a href="#project_tab1" data-toggle="tab"><i class="icon-list"></i> 列表</a></li>
+        <li class="<%= 'active' if create %>"><a href="#project_tab2" data-toggle="tab"><i class="icon-plus"></i> 添加</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane <%= 'active' unless create %>" id="project_tab1">
+      <%= partial 'projects/project', collection: @user.projects.recent %>
+    </div>
+    <div class="tab-pane <%= 'active' if create %>" id="project_tab2">
+      <% project = (@project && @project.new_record?) ? @project : @user.projects.new %>
+      <% form_for project, url(:projects, :create, :user_id => @user.id), :class => 'form-horizontal' do |f| %>
+        <%= partial 'projects/form', :locals => { :f => f, :project => project } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<ul class="nav nav-pills nav-stacked">
+  <li class="active"> <a href="#">教育经历</a></li>
+</ul>

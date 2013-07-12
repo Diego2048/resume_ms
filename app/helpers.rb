@@ -21,6 +21,12 @@ Newresume::Admin.helpers do
              :self_intro, :score, :source)
   end
 
+  def project_params
+    ActiveSupport::HashWithIndifferentAccess.new(params)
+      .fetch(:project)
+      .slice(:name, :begin_on_year, :begin_on_month, :end_on_year, :end_on_month, :summary, :duty, :platform)
+  end
+
   def short_date(date)
     I18n.l(date, :format => :ym) if date
   end

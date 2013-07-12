@@ -118,5 +118,41 @@
     $('.dropdown-menu > li > a').click(function(){
       $(this).parents('div.btn-group').prev('input').val(this.innerHTML);
     });
+
+    function msg_popover(el, msg, placement){
+      $(el).popover('destroy');
+      $(el).popover({ placement: placement, content: '<div class="alert alert-error"><i class="icon-info-sign"></i> '+msg+' </div>', html: true });
+      $(el).popover('show');
+      setTimeout(function() { $(el).popover('destroy'); }, 3000);
+    }
+
+    $('a.delete')
+    .bind('ajax:success', function(evt, data){
+      data.success ? $('#project_'+data.id).fadeOut(400, function(){$(this).remove()}) : msg_popover(this, data.msg);
+    })
+    .bind('ajax:failure', function(evt, xhr, status, error){
+      msg_popover(this, "删除失败，请稍后再试。失败原因："+ xhr.statusText);
+    });
+
+    $('a.edit')
+    .bind('ajax:success', function(evt, data){
+      var id = $(this).parents('table')[0].id;
+      $(data).insertAfter("#"+id);
+      $("#"+id).hide();
+    })
+    .bind('ajax:failure', function(evt, xhr, status, error){
+      msg_popover(this, "删除失败，请稍后再试。失败原因："+ xhr.statusText);
+    });
+
+    $('.tab-content').on('click', '.form-actions > a.btn', function(){
+      var form = $(this).parents('form')[0];
+      if(form.action.match(/update/)){
+        $(form).prev('table').show();
+        $(form).hide();
+      } else {
+        $(this).parents('.tabbable').find('.nav a:first').tab('show')
+      }
+    });
+
   });
 }(window.jQuery);

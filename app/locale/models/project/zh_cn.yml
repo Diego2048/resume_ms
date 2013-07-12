@@ -6,6 +6,7 @@ zh_cn:
         id: Id
         user_id: 用户
         name: 项目名称
+        begin_on_year: 时间段
         begin_on: 开始时间
         end_on: 结束时间
         summary: 详细描述

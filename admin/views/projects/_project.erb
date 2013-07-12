@@ -1,0 +1,30 @@
+<table class="table table-bordered <%= 'hide' if project == @project %>" id="project_<%= project.id %>">
+    <tr>
+      <td rowspan="4" width="14">
+        <%= link_to tag_icon(:edit), url(:projects, :edit, user_id: @user.id, id: project.id, format: :html, authenticity_token: session[:csrf]), class: 'close edit', title: pat(:edit), remote: true %>
+        <br /><br />
+        <%= link_to tag_icon(:trash), url(:projects, :destroy, user_id: @user.id, id: project.id, format: :json, authenticity_token: session[:csrf]), class: 'close delete', title: pat(:delete), confirm: "Are You Sure?", remote: true, method: :delete %>
+      </td>
+      <th class="span2"><%= mat(:project, :name) %></th>
+      <td><%= project.name %></td>
+      <th class="span2"><%= mat(:project, :begin_on_year) %></th>
+      <td class="span3"><%= short_date project.begin_on %> ~ <%= short_date project.end_on %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:project, :summary) %></th>
+      <td colspan="3"><%= project.summary %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:project, :duty) %></th>
+      <td colspan="3"><%= project.duty %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:project, :platform) %></th>
+      <td colspan="3"><%= project.platform %></td>
+    </tr>
+</table>
+<% if @project == project -%>
+  <% form_for :project, url(:projects, :update, user_id: @user.id, id: @project.id), method: :put, class: 'form-horizontal', id: "project_#{@project.id}_form" do |f| %>
+    <%= partial 'projects/form', :locals => { f: f, project: @project } %>
+  <% end %>
+<% end -%>
