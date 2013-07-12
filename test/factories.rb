@@ -16,4 +16,13 @@ FactoryGirl.define do
     hukou '北京'
   end
 
+  factory :project do
+    name '项目经验一'
+    user
+    begin_on_year 1999
+    begin_on_month 12
+    end_on_year 2012
+    end_on_month 9
+  end
+
 end
