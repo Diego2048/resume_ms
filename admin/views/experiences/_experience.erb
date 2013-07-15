@@ -1,4 +1,4 @@
-<table class="table table-bordered <%= 'hide' if experience == @experience %>" id="experience_<%= experience.id %>">
+<table class="table table-bordered <%= 'hide' if experience == @experience %>">
     <tr>
       <td rowspan="3" width="14">
         <%= link_to tag_icon(:edit), url(:experiences, :edit, user_id: @user.id, id: experience.id, format: :html, authenticity_token: session[:csrf]), class: 'close edit', title: pat(:edit), remote: true %>

@@ -1,4 +1,4 @@
-<table class="table table-bordered <%= 'hide' if project == @project %>" id="project_<%= project.id %>">
+<table class="table table-bordered <%= 'hide' if project == @project %>">
     <tr>
       <td rowspan="4" width="14">
         <%= link_to tag_icon(:edit), url(:projects, :edit, user_id: @user.id, id: project.id, format: :html, authenticity_token: session[:csrf]), class: 'close edit', title: pat(:edit), remote: true %>

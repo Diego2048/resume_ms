@@ -35,6 +35,12 @@ Newresume::Admin.helpers do
       .slice(:name, :begin_on_year, :begin_on_month, :end_on_year, :end_on_month, :summary, :duty, :platform)
   end
 
+  def education_params
+    ActiveSupport::HashWithIndifferentAccess.new(params)
+      .fetch(:education)
+      .slice(:school, :begin_on_year, :begin_on_month, :end_on_year, :end_on_month, :summary, :degree, :major)
+  end
+
   def short_date(date)
     I18n.l(date, :format => :ym) if date
   end

@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 class Education < ActiveRecord::Base
+  transform_date :begin_on, :end_on
   belongs_to :user
+  validates :school, presence: true
+  scope :recent, -> {order('begin_on desc, id desc')}
 end
 
 # == Schema Information

@@ -1,0 +1,51 @@
+<% error = education.errors.include?(:school) %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :school, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :school %>
+    <span class='help-inline'><%= f.error_message_on(:school) if error %></span>
+  </div>
+</fieldset>
+<% error = education.errors.include?(:begin_on) || education.errors.include?(:end_on) %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :begin_on_year, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :begin_on_year, :class => 'input-mini' %> 年
+    <%= f.month_select :begin_on_month %> 月 ～
+    <%= f.text_field :end_on_year, :class => 'input-mini' %> 年
+    <%= f.month_select :end_on_month %> 月
+    <span class='help-inline'><%= f.error_message_on(:begin_on) if error %><%= f.error_message_on(:end_on) if error %></span>
+  </div>
+</fieldset>
+<% error = education.errors.include?(:degree) %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :degree, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :degree %>
+    <span class='help-inline'><%= f.error_message_on(:degree) if error %></span>
+  </div>
+</fieldset>
+<% error = education.errors.include?(:major) %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :major, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :major %>
+    <span class='help-inline'><%= f.error_message_on(:major) if error %></span>
+  </div>
+</fieldset>
+<% error = education.errors.include?(:summary) %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :summary, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_area :summary, :class => 'span5' %>
+    <span class='help-inline'><%= f.error_message_on(:summary) if error %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  &nbsp;
+  <%= link_to pat(:cancel), 'javascript:void(0)', :class => 'btn' %>
+</div>

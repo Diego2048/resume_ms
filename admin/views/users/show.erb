@@ -72,10 +72,10 @@
 <div class="tabbable">
   <div class="navbar">
     <div class="navbar-inner">
-      <a class="brand" href="#">工作经历</a>
+      <a class="brand" href="#"><%= mt(:experience) %></a>
       <ul class="nav">
-        <li class="<%= 'active' unless create %>"><a href="#exp_tab1" data-toggle="tab"><i class="icon-list"></i> 列表</a></li>
-        <li class="<%= 'active' if create %>"><a href="#exp_tab2" data-toggle="tab"><i class="icon-plus"></i> 添加</a></li>
+        <li class="<%= 'active' unless create %>"><a href="#exp_tab1" data-toggle="tab"><i class="icon-list"></i> <%= pat(:list) %></a></li>
+        <li class="<%= 'active' if create %>"><a href="#exp_tab2" data-toggle="tab"><i class="icon-plus"></i> <%= pat(:new) %></a></li>
       </ul>
     </div>
   </div>
@@ -92,14 +92,14 @@
   </div>
 </div>
 
-<% create = request.path.include?('/project/create') %>
+<% create = request.path.include?('/projects/create') %>
 <div class="tabbable">
   <div class="navbar">
     <div class="navbar-inner">
-      <a class="brand" href="#">项目经历</a>
+      <a class="brand" href="#"><%= mt(:project) %></a>
       <ul class="nav">
-        <li class="<%= 'active' unless create %>"><a href="#project_tab1" data-toggle="tab"><i class="icon-list"></i> 列表</a></li>
-        <li class="<%= 'active' if create %>"><a href="#project_tab2" data-toggle="tab"><i class="icon-plus"></i> 添加</a></li>
+        <li class="<%= 'active' unless create %>"><a href="#project_tab1" data-toggle="tab"><i class="icon-list"></i> <%= pat(:list) %></a></li>
+        <li class="<%= 'active' if create %>"><a href="#project_tab2" data-toggle="tab"><i class="icon-plus"></i> <%= pat(:new) %></a></li>
       </ul>
     </div>
   </div>
@@ -111,6 +111,30 @@
       <% project = (@project && @project.new_record?) ? @project : @user.projects.new %>
       <% form_for project, url(:projects, :create, :user_id => @user.id), :class => 'form-horizontal' do |f| %>
         <%= partial 'projects/form', :locals => { :f => f, :project => project } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% create = request.path.include?('/educations/create') %>
+<div class="tabbable">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#"><%= mt(:education) %></a>
+      <ul class="nav">
+        <li class="<%= 'active' unless create %>"><a href="#edu_tab1" data-toggle="tab"><i class="icon-list"></i> <%= pat(:list) %></a></li>
+        <li class="<%= 'active' if create %>"><a href="#edu_tab2" data-toggle="tab"><i class="icon-plus"></i> <%= pat(:new) %></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane <%= 'active' unless create %>" id="edu_tab1">
+      <%= partial 'educations/education', collection: @user.educations.recent %>
+    </div>
+    <div class="tab-pane <%= 'active' if create %>" id="edu_tab2">
+      <% education = (@education && @education.new_record?) ? @education : @user.educations.new %>
+      <% form_for education, url(:educations, :create, :user_id => @user.id), :class => 'form-horizontal' do |f| %>
+        <%= partial 'educations/form', :locals => { :f => f, :education => education } %>
       <% end %>
     </div>
   </div>

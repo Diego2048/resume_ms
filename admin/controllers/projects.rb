@@ -24,8 +24,10 @@ Newresume::Admin.controllers :projects, :parent => :user do
   put :update, with: :id do
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
+      flash[:success] = pat(:update_success, model: mt(:project), id:  "#{params[:id]}")
       redirect url(:users, :show, id: @user.id)
     else
+      flash.now[:error] = pat(:update_error, model: mt(:project))
       render 'users/show'
     end
   end
@@ -35,7 +37,7 @@ Newresume::Admin.controllers :projects, :parent => :user do
     if project && !project.destroy
       {success: false, msg: pat(:delete_error, :model => mt(:project))}.to_json
     else
-      {success: true, id: params[:id]}.to_json
+      {success: true}.to_json
     end
   end
 

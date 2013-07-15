@@ -24,8 +24,10 @@ Newresume::Admin.controllers :experiences, :parent => :user do
   put :update, with: :id do
     @experience = Experience.find(params[:id])
     if @experience.update_attributes(experience_params)
+      flash[:success] = pat(:update_success, model: mt(:experience), id:  "#{params[:id]}")
       redirect url(:users, :show, id: @user.id)
     else
+      flash.now[:error] = pat(:update_error, model: mt(:experience))
       render 'users/show'
     end
   end
@@ -35,7 +37,7 @@ Newresume::Admin.controllers :experiences, :parent => :user do
     if experience && !experience.destroy
       {success: false, msg: pat(:delete_error, :model => mt(:experience))}.to_json
     else
-      {success: true, id: params[:id]}.to_json
+      {success: true}.to_json
     end
   end
 

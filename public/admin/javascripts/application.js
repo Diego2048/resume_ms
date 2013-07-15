@@ -128,7 +128,7 @@
 
     $('a.delete')
     .bind('ajax:success', function(evt, data){
-      data.success ? $('#project_'+data.id).fadeOut(400, function(){$(this).remove()}) : msg_popover(this, data.msg);
+      data.success ? $($(this).parents('table')[0]).fadeOut(400, function(){$(this).remove()}) : msg_popover(this, data.msg);
     })
     .bind('ajax:failure', function(evt, xhr, status, error){
       msg_popover(this, "删除失败，请稍后再试。失败原因："+ xhr.statusText);
@@ -136,9 +136,9 @@
 
     $('a.edit')
     .bind('ajax:success', function(evt, data){
-      var id = $(this).parents('table')[0].id;
-      $(data).insertAfter("#"+id);
-      $("#"+id).hide();
+      var el = $(this).parents('table')[0];
+      $(data).insertAfter(el);
+      $(el).hide();
     })
     .bind('ajax:failure', function(evt, xhr, status, error){
       msg_popover(this, "删除失败，请稍后再试。失败原因："+ xhr.statusText);

@@ -1,0 +1,28 @@
+<table class="table table-bordered <%= 'hide' if education == @education %>">
+    <tr>
+      <td rowspan="4" width="14">
+        <%= link_to tag_icon(:edit), url(:educations, :edit, user_id: @user.id, id: education.id, format: :html, authenticity_token: session[:csrf]), class: 'close edit', title: pat(:edit), remote: true %>
+        <br /><br />
+        <%= link_to tag_icon(:trash), url(:educations, :destroy, user_id: @user.id, id: education.id, format: :json, authenticity_token: session[:csrf]), class: 'close delete', title: pat(:delete), confirm: "Are You Sure?", remote: true, method: :delete %>
+      </td>
+      <th class="span2"><%= mat(:education, :school) %></th>
+      <td><%= education.school %></td>
+      <th class="span2"><%= mat(:education, :begin_on_year) %></th>
+      <td class="span3"><%= short_date education.begin_on %> ~ <%= short_date education.end_on %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:education, :degree) %></th>
+      <td><%= education.degree %></td>
+      <th><%= mat(:education, :major) %></th>
+      <td><%= education.major %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:education, :summary) %></th>
+      <td colspan="3"><%= education.summary %></td>
+    </tr>
+</table>
+<% if @education == education -%>
+  <% form_for :education, url(:educations, :update, user_id: @user.id, id: @education.id), method: :put, class: 'form-horizontal', id: "education_#{@education.id}_form" do |f| %>
+    <%= partial 'educations/form', :locals => { f: f, education: @education } %>
+  <% end %>
+<% end -%>
