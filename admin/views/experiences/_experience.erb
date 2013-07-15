@@ -1,0 +1,30 @@
+<table class="table table-bordered <%= 'hide' if experience == @experience %>" id="experience_<%= experience.id %>">
+    <tr>
+      <td rowspan="3" width="14">
+        <%= link_to tag_icon(:edit), url(:experiences, :edit, user_id: @user.id, id: experience.id, format: :html, authenticity_token: session[:csrf]), class: 'close edit', title: pat(:edit), remote: true %>
+        <br /><br />
+        <%= link_to tag_icon(:trash), url(:experiences, :destroy, user_id: @user.id, id: experience.id, format: :json, authenticity_token: session[:csrf]), class: 'close delete', title: pat(:delete), confirm: "Are You Sure?", remote: true, method: :delete %>
+      </td>
+      <th class="span2"><%= mat(:experience, :company) %></th>
+      <td colspan="3"><%= experience.company %></td>
+      <th class="span2"><%= mat(:experience, :begin_on_year) %></th>
+      <td class="span3"><%= short_date experience.begin_on %> ~ <%= short_date experience.end_on %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:experience, :industry) %></th>
+      <td class="span3"><%= experience.industry %></td>
+      <th class="span1"><%= mat(:experience, :department) %></th>
+      <td><%= experience.department %></td>
+      <th><%= mat(:experience, :title) %></th>
+      <td><%= experience.title %></td>
+    </tr>
+    <tr>
+      <th><%= mat(:experience, :summary) %></th>
+      <td colspan="5"><%= experience.summary %></td>
+    </tr>
+</table>
+<% if @experience == experience -%>
+  <% form_for :experience, url(:experiences, :update, user_id: @user.id, id: @experience.id), method: :put, class: 'form-horizontal', id: "experience_#{@experience.id}_form" do |f| %>
+    <%= partial 'experiences/form', :locals => { f: f, experience: @experience } %>
+  <% end %>
+<% end -%>

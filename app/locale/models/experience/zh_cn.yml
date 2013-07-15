@@ -7,10 +7,11 @@ zh_cn:
         company: 公司
         industry: 行业
         department: 部门
-        start_on: 入职时间
+        begin_on_year: 工作时间段
+        begin_on: 入职时间
         end_on: 离职时间
         title: 职位
-        summary: 工作内容和职责的描述
+        summary: 工作内容和职责描述
         created_at: 创建时间
         updated_at: 更新时间
         user_id: 用户

@@ -1,0 +1,3 @@
+<% form_for :experience, url(:experiences, :update, user_id: @user.id, id: @experience.id), method: :put, class: 'form-horizontal', id: "experience_#{@experience.id}_form" do |f| %>
+  <%= partial 'experiences/form', :locals => { f: f, experience: @experience } %>
+<% end %>

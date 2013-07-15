@@ -68,7 +68,31 @@
     </tr>
   </tbody>
 </table>
-<% create = request.path.include?('create') %>
+<% create = request.path.include?('/experiences/create') %>
+<div class="tabbable">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">工作经历</a>
+      <ul class="nav">
+        <li class="<%= 'active' unless create %>"><a href="#exp_tab1" data-toggle="tab"><i class="icon-list"></i> 列表</a></li>
+        <li class="<%= 'active' if create %>"><a href="#exp_tab2" data-toggle="tab"><i class="icon-plus"></i> 添加</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane <%= 'active' unless create %>" id="exp_tab1">
+      <%= partial 'experiences/experience', collection: @user.experiences.recent %>
+    </div>
+    <div class="tab-pane <%= 'active' if create %>" id="exp_tab2">
+      <% experience = (@experience && @experience.new_record?) ? @experience : @user.experiences.new %>
+      <% form_for experience, url(:experiences, :create, :user_id => @user.id), :class => 'form-horizontal' do |f| %>
+        <%= partial 'experiences/form', :locals => { :f => f, :experience => experience } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% create = request.path.include?('/project/create') %>
 <div class="tabbable">
   <div class="navbar">
     <div class="navbar-inner">
@@ -91,7 +115,3 @@
     </div>
   </div>
 </div>
-
-<ul class="nav nav-pills nav-stacked">
-  <li class="active"> <a href="#">教育经历</a></li>
-</ul>

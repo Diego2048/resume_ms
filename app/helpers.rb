@@ -22,6 +22,13 @@ Newresume::Admin.helpers do
              :self_intro, :score, :source)
   end
 
+  def experience_params
+    ActiveSupport::HashWithIndifferentAccess.new(params)
+      .fetch(:experience)
+      .slice(:company, :industry, :department, :begin_on_year, :begin_on_month, :end_on_year, :end_on_month, :title,
+             :summary)
+  end
+
   def project_params
     ActiveSupport::HashWithIndifferentAccess.new(params)
       .fetch(:project)
