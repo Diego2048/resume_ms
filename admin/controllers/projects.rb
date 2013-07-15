@@ -23,15 +23,10 @@ Newresume::Admin.controllers :projects, :parent => :user do
 
   put :update, with: :id do
     @project = Project.find(params[:id])
-    if @project
-      if @project.update_attributes(project_params)
-        redirect url(:users, :show, id: @user.id)
-      else
-        render 'users/show'
-      end
+    if @project.update_attributes(project_params)
+      redirect url(:users, :show, id: @user.id)
     else
-      flash[:warning] = pat(:update_warning, :model => mt(:project), :id => "#{params[:id]}")
-      halt 404
+      render 'users/show'
     end
   end
 

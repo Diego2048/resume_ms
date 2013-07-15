@@ -23,15 +23,10 @@ Newresume::Admin.controllers :experiences, :parent => :user do
 
   put :update, with: :id do
     @experience = Experience.find(params[:id])
-    if @experience
-      if @experience.update_attributes(experience_params)
-        redirect url(:users, :show, id: @user.id)
-      else
-        render 'users/show'
-      end
+    if @experience.update_attributes(experience_params)
+      redirect url(:users, :show, id: @user.id)
     else
-      flash[:warning] = pat(:update_warning, :model => mt(:experience), :id => "#{params[:id]}")
-      halt 404
+      render 'users/show'
     end
   end
 

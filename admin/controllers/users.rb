@@ -29,58 +29,38 @@ Newresume::Admin.controllers :users do
   get :show, :map => '/users/:id' do
     @title = pat(:show_title, :model => "#{mt(:user)} #{params[:id]}")
     @user = User.find(params[:id])
-    if @user
-      render 'users/show'
-    else
-      flash[:warning] = pat(:create_error, :model => mt(:user), :id => "#{params[:id]}")
-      halt 404
-    end
+    render 'users/show'
   end
 
   get :edit, :with => :id do
     @title = pat(:edit_title, :model => "#{mt(:user)} #{params[:id]}")
     @user = User.find(params[:id])
-    if @user
-      render 'users/edit'
-    else
-      flash[:warning] = pat(:create_error, :model => mt(:user), :id => "#{params[:id]}")
-      halt 404
-    end
+    render 'users/edit'
   end
 
   put :update, :with => :id do
     @title = pat(:update_title, :model => "#{mt(:user)} #{params[:id]}")
     @user = User.find(params[:id])
-    if @user
-      if @user.update_attributes(user_params)
-        flash[:success] = pat(:update_success, :model => mt(:user), :id =>  "#{params[:id]}")
-        params[:save_and_continue] ?
-          redirect(url(:users, :index)) :
-          redirect(url(:users, :edit, :id => @user.id))
-      else
-        flash.now[:error] = pat(:update_error, :model => mt(:user))
-        render 'users/edit'
-      end
+    if @user.update_attributes(user_params)
+      flash[:success] = pat(:update_success, :model => mt(:user), :id =>  "#{params[:id]}")
+      params[:save_and_continue] ?
+        redirect(url(:users, :index)) :
+        redirect(url(:users, :edit, :id => @user.id))
     else
-      flash[:warning] = pat(:update_warning, :model => mt(:user), :id => "#{params[:id]}")
-      halt 404
+      flash.now[:error] = pat(:update_error, :model => mt(:user))
+      render 'users/edit'
     end
   end
 
   delete :destroy, :with => :id do
     @title = mt(:user)
     user = User.find(params[:id])
-    if user
-      if user.destroy
-        flash[:success] = pat(:delete_success, :model => mt(:user), :id => "#{params[:id]}")
-      else
-        flash[:error] = pat(:delete_error, :model => mt(:user))
-      end
-      redirect url(:users, :index)
+    if user.destroy
+      flash[:success] = pat(:delete_success, :model => mt(:user), :id => "#{params[:id]}")
     else
-      flash[:warning] = pat(:delete_warning, :model => mt(:user), :id => "#{params[:id]}")
-      halt 404
+      flash[:error] = pat(:delete_error, :model => mt(:user))
     end
+    redirect url(:users, :index)
   end
 
   delete :destroy_many do
