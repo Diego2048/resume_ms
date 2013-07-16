@@ -139,3 +139,27 @@
     </div>
   </div>
 </div>
+
+<% create = request.path.include?('/acquired_skills/create') %>
+<div class="tabbable">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#"><%= mt(:acquired_skill) %></a>
+      <ul class="nav">
+        <li class="<%= 'active' unless create %>"><a href="#skill_tab1" data-toggle="tab"><i class="icon-list"></i> <%= pat(:list) %></a></li>
+        <li class="<%= 'active' if create %>"><a href="#skill_tab2" data-toggle="tab"><i class="icon-plus"></i> <%= pat(:new) %></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane <%= 'active' unless create %>" id="skill_tab1">
+      <%= partial 'acquired_skills/acquired_skill', collection: @user.acquired_skills %>
+    </div>
+    <div class="tab-pane <%= 'active' if create %>" id="skill_tab2">
+      <% acquired_skill = (@acquired_skill && @acquired_skill.new_record?) ? @acquired_skill : @user.acquired_skills.new %>
+      <% form_for acquired_skill, url(:acquired_skills, :create, :user_id => @user.id), :class => 'form-horizontal' do |f| %>
+        <%= partial 'acquired_skills/form', :locals => { :f => f, :acquired_skill => acquired_skill } %>
+      <% end %>
+    </div>
+  </div>
+</div>

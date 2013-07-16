@@ -6,5 +6,6 @@ zh_cn:
         id: Id
         user_id: 用户
         skill_id: 技能
+        name: 名称
         experience: 经验
         level: 级别

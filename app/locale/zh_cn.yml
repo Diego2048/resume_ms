@@ -5,6 +5,8 @@ zh_cn:
     score_names: [~, 一级, 二级, 三级, 四级, 五级]
     abbr_score_names: [~, 1, 2, 3, 4, 5]
     gender_names: [女, 男]
+    level_names: [~, 一级, 二级, 三级, 四级, 五级]
+    abbr_level_names: [~, 1, 2, 3, 4, 5]
   top_cities:
     name: 常用城市
     cities: [北京, 上海, 广州, 深圳, 珠海, 汕头]

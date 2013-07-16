@@ -1,0 +1,19 @@
+<table class="table <%= 'hide' if acquired_skill == @acquired_skill %>">
+    <tr>
+      <td rowspan="1" width="50">
+        <%= link_to tag_icon(:edit), url(:acquired_skills, :edit, user_id: @user.id, id: acquired_skill.id, format: :html, authenticity_token: session[:csrf]), class: 'close edit', title: pat(:edit), remote: true %>
+        <%= link_to tag_icon(:trash), url(:acquired_skills, :destroy, user_id: @user.id, id: acquired_skill.id, format: :json, authenticity_token: session[:csrf]), class: 'close delete', title: pat(:delete), confirm: "Are You Sure?", remote: true, method: :delete %>
+      </td>
+      <th class="span1"><%= mat(:acquired_skill, :name) %></th>
+      <td class="span3"><%= acquired_skill.name %></td>
+      <th class="span1"><%= mat(:acquired_skill, :experience) %></th>
+      <td><%= acquired_skill.experience %> 个月</td>
+      <th class="span2"><%= mat(:acquired_skill, :level) %></th>
+      <td><%= locale_abbr acquired_skill, :level %></td>
+    </tr>
+</table>
+<% if @acquired_skill == acquired_skill -%>
+  <% form_for :acquired_skill, url(:acquired_skills, :update, user_id: @user.id, id: @acquired_skill.id), method: :put, class: 'form-horizontal' do |f| %>
+    <%= partial 'acquired_skills/form', :locals => { f: f, acquired_skill: @acquired_skill } %>
+  <% end %>
+<% end -%>

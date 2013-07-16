@@ -342,4 +342,6 @@ footer p {
   }
 }
 /* -- End Application -- */
-table.table-bordered th {background-color: #eee}
+table.table th {background-color: #eee}
+#skill_tab1 table {margin-bottom: 0}
+#skill_tab1 table .close {margin: 0 5px}

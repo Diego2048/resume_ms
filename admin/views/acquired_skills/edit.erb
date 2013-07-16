@@ -1,0 +1,3 @@
+<% form_for :acquired_skill, url(:acquired_skills, :update, user_id: @user.id, id: @acquired_skill.id), method: :put, class: 'form-horizontal' do |f| %>
+  <%= partial 'acquired_skills/form', :locals => { f: f, acquired_skill: @acquired_skill } %>
+<% end %>

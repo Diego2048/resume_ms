@@ -2,6 +2,17 @@
 class AcquiredSkill < ActiveRecord::Base
   belongs_to :user
   belongs_to :skill
+  validates :name, presence: true
+
+  def name=(name)
+    @name = name
+    skill = Skill.find_or_create_by_name @name
+    self.skill = skill
+  end
+
+  def name
+    @name || (skill.name if skill)
+  end
 end
 
 # == Schema Information

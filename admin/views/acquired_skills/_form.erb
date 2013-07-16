@@ -1,0 +1,31 @@
+<% error = acquired_skill.errors.include?(:name) %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :name, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :name %>
+    <span class='help-inline'><%= f.error_message_on(:name) if error %></span>
+  </div>
+</fieldset>
+<% error = acquired_skill.errors.include?(:experience) %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :experience, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.number_field :experience, :class => 'span1' %> 个月
+    <span class='help-inline'><%= f.error_message_on(:experience) if error %></span>
+  </div>
+</fieldset>
+<% error = acquired_skill.errors.include?(:level) %>
+<fieldset class='control-group <%= 'error' if error %>'>
+  <%= f.label :level, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.locale_select :level, 'options.level_names' %>
+    <span class='help-inline'><%= f.error_message_on(:level) if error %></span>
+  </div>
+</fieldset>
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  &nbsp;
+  <%= link_to pat(:cancel), 'javascript:void(0)', :class => 'btn' %>
+</div>
