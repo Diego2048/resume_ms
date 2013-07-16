@@ -18,6 +18,7 @@ gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'erubis', '~> 2.7.0'
 gem 'activerecord', '~> 3.2.13', require: 'active_record'
 gem 'mysql2'
+gem 'will_paginate', :require => ['will_paginate/active_record', 'will_paginate/view_helpers/sinatra']
 
 # Padrino Stable Gem
 #gem 'padrino', '0.11.2'

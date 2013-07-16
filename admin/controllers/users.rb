@@ -3,7 +3,7 @@ Newresume::Admin.controllers :users do
 
   get :index do
     @title = mt(:user)
-    @users = User.all
+    @users = User.page(params[:page])
     render 'users/index'
   end
 
@@ -18,7 +18,7 @@ Newresume::Admin.controllers :users do
     if @user.save
       @title = pat(:create_title, :model => "#{mt(:user)} #{@user.id}")
       flash[:success] = pat(:create_success, :model => mt(:user))
-      params[:save_and_continue] ? redirect(url(:users, :index)) : redirect(url(:users, :edit, :id => @user.id))
+      params[:save_and_continue] ? redirect(url(:users, :new)) : redirect(url(:users, :show, :id => @user.id))
     else
       @title = pat(:create_title, :model => mt(:user))
       flash.now[:error] = pat(:create_error, :model => mt(:user))

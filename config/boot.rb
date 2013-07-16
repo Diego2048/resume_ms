@@ -43,4 +43,6 @@ end
 Padrino.after_load do
 end
 
+WillPaginate.per_page = 5
+
 Padrino.load!

@@ -101,6 +101,7 @@ GEM
     tzinfo (0.3.37)
     url_mount (0.2.1)
       rack
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
@@ -120,3 +121,4 @@ DEPENDENCIES
   rack-test
   rake
   thin
+  will_paginate
