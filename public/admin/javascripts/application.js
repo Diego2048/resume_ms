@@ -153,6 +153,10 @@
         $(this).parents('.tabbable').find('.nav a:first').tab('show')
       }
     });
+    if($('.pagination ul').length > 0)
+      $('#page_info').removeClass('pull-right').prependTo($('.pagination ul'));
+    else
+      $('#page_info').wrap('<div class="pagination pagination-right"><ul /></div>');
 
   });
 }(window.jQuery);

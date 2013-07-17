@@ -16,4 +16,20 @@ zh_cn:
   date:
     formats:
       ym: "%Y-%m"
+  will_paginate:
+    previous_label: "&#8592; 上页"
+    next_label: "下页 &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero:  "没有记录"
+        one:   "显示第一条"
+        other: "显示第 %{count} 条"
+      single_page_html:
+        zero:  "没有记录"
+        one:   "显示第 1 条"
+        other: "显示 所有&nbsp;%{count} 条"
+      multi_page: "显示 %{from} - %{to} 条，总共 %{count} 条"
+      multi_page_html: "显示 %{from}&nbsp;-&nbsp;%{to} 条，总共 %{count} 条"
+
     
